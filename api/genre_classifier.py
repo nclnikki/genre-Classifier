@@ -5,6 +5,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.image import resize
 import traceback
+from io import BytesIO
 
 app = Flask(__name__)
 CORS(app)
@@ -16,9 +17,9 @@ model = tf.keras.models.load_model("Trained_model (1).h5")
 classes = ['blues', 'classical', 'country', 'disco', 'hiphop', 'jazz', 'metal', 'pop', 'reggae', 'rock']
 
 # Load and preprocess audio data
-def load_and_preprocess_data(file_path, target_shape=(210, 210)):
+def load_and_preprocess_data(file, target_shape=(210, 210)):
     data = []
-    audio_data, sample_rate = librosa.load(file_path, sr=None)
+    audio_data, sample_rate = librosa.load(file, sr=None)
 
     # Define chunk and overlap durations
     chunk_duration = 4  # seconds
@@ -68,13 +69,12 @@ def predict_genre():
         if 'file' not in request.files:
             return jsonify({"error": "No file uploaded"}), 400
 
-        # Load the uploaded file
         file = request.files['file']
-        file_path = "temp_audio_file.wav"
-        file.save(file_path)  # Save the file temporarily
+        audio_bytes = BytesIO(file.read())
+
 
         # Preprocess the audio data
-        X_test = load_and_preprocess_data(file_path)
+        X_test = load_and_preprocess_data(file=audio_bytes)
 
         # Perform prediction
         predicted_index = model_prediction(X_test)
