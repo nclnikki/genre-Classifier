@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Genre Classification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Music Genre Classification</h1>
+  </header>
+  <div class="dashboard">
+    <div class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="#" id="aboutLink">About</a></li>
+        <li><a href="#" id="predictLink">Prediction</a></li>
+      </ul>
+    </div>
+    <div class="content">
+      <div id="aboutPage" class="page active">
+        <h1>Music Genre Classification</h1>
+        <p>Welcome to Music Genre Classifier! <br> This application uses machine learning to classify music genres based on audio files. Upload an audio file, and the system will predict its genre. <br><br><br>Note: Due to the limitations of Vercel, larger file size might not be compatible. <br> Enjoy!</p>
+         <br>
+        <h2>About the Project</h2>
+        <p>This project uses Convolutional Neural Network (CNN) architecture to analyze audio data. <br>Dataset used to train the Music Genre Classification model for this project is from <a href="https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification">GTZAN dataset</a>  </p>
+      </div>
+      <div id="predictPage" class="page">
+        <h1>Music Genre Classifier</h1>
+        <div class="upload-container">
+          <label for="fileInput" class="file-label">
+            <span>Click here to upload your file</span>
+            
+          </label>
+          <input type="file" id="fileInput" accept="audio/*">
+          <div id="fileDetails" class="file-details">
+            <span id="fileName">No file selected</span>
+            <span id="fileSize"></span>
+            <button id="removeFile">✖</button>
+          </div>
+          
+          <audio id="audioPlayer" controls hidden>
+            <source id="audioSource" src="" type="audio/mpeg">
+          </audio>
+          <button id="analyzeButton">Analyze</button>
+        </div>
+        <div id="loading" class="loading" style="display: none;">
+          Analyzing audio...
+        </div>        
+        <div id="result"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

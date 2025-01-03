@@ -1,0 +1,165 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 100px; /* Add padding to prevent content from overlapping the header */
+  overflow: hidden;
+}
+
+
+header {
+  background-color: #363460;
+  color: white;
+  text-align: left; /* Align text to the left */
+  padding: 10px 20px; /* Add some padding for spacing */
+  position: fixed; /* Keep it at the top of the page */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ensure it spans the entire width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: add a shadow for aesthetics */
+}
+
+
+.dashboard {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #3c3a5d;
+  color: white;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.sidebar ul li a:hover {
+  background-color: #535580;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.upload-container {
+  align-items: center; 
+  height: 250px;
+  max-width: 450px;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+  background: #1e1e1e;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 15px;
+  background-color: #2d2d2d;
+  border: 1px dashed #6c63ff;
+  border-radius: 5px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.file-details {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  margin: 15px;
+  padding: 10px 20px;
+  background-color: #585586;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5a54d1;
+}
+
+button#removeFile {
+  background-color: #1e1e1e;
+  top: 30px;
+  border-radius: 0%;
+  width: 5px;
+  height: 5px;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+audio {
+  margin-top: 20px;
+  width: 100%;
+}
+.loading {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #090815;
+  text-align: center;
+  margin-top: 20px;
+  animation: fade 1.5s infinite;
+}
+
+@keyframes fade {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
