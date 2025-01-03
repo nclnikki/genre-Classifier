@@ -4,6 +4,9 @@
     { "src": "api/genre_classifier.py", "use": "@vercel/python" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "api/genre_classifier.py" }
+    {
+      "src": "/predict",
+      "dest": "/api/genre_classifier.py"
+    }
   ]
 }
